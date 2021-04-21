@@ -1,5 +1,11 @@
 import "./App.css";
-import { FormControl, Select, MenuItem } from "@material-ui/core";
+import {
+  FormControl,
+  Select,
+  MenuItem,
+  CardContent,
+  Card,
+} from "@material-ui/core";
 import { useState, useEffect } from "react";
 import InfoBox from "./InfoBox";
 import Map from "./Map";
@@ -50,13 +56,17 @@ function App() {
           <InfoBox title="Recuperados" cases="15000" total="1000"></InfoBox>
           <InfoBox title="Mortes" cases="100" total="1000"></InfoBox>
         </div>
-      </div>
-      <div className="app_right">
-        {/* Table */}
-        {/* Graph */}
-      </div>
 
-      <Map />
+        <Map />
+      </div>
+      <Card className="app_right">
+        <CardContent>
+          <h3>Casos por países</h3>
+          {/* Table */}
+          <h3>Novos casos no mundo</h3>
+          {/* Graph */}
+        </CardContent>
+      </Card>
     </div>
   );
 }
