@@ -10,7 +10,8 @@ import { useState, useEffect } from "react";
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
-import util, { sortData } from "./util";
+import { sortData } from "./util";
+import LineGraph from "./LineGraph";
 
 function App() {
   const [countries, setcountries] = useState([]);
@@ -100,10 +101,9 @@ function App() {
       <Card className="app_right">
         <CardContent>
           <h3>Casos por países</h3>
-          {/* Table */}
           <Table countries={tableData} />
           <h3>Novos casos no mundo</h3>
-          {/* Graph */}
+          <LineGraph />
         </CardContent>
       </Card>
     </div>
