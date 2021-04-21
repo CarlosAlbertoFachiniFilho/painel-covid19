@@ -1,6 +1,8 @@
 import "./App.css";
 import { FormControl, Select, MenuItem } from "@material-ui/core";
 import { useState, useEffect } from "react";
+import InfoBox from "./InfoBox";
+import Map from "./Map";
 
 function App() {
   const [countries, setcountries] = useState([]);
@@ -24,32 +26,37 @@ function App() {
 
   return (
     <div className="app">
-      <div className="app_header">
-        <h1>Painel covid 19</h1>
-        <FormControl className="app_dropdown">
-          <Select
-            variant="outlined"
-            value={country}
-            onChange={(e) => setcountry(e.target.value)}
-          >
-            <MenuItem value="worldwide">Worldwide</MenuItem>
-            {countries.map((country) => (
-              <MenuItem key={country.value} value={country.name}>
-                {country.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+      <div className="app_left">
+        <div className="app_header">
+          <h1>Painel covid 19</h1>
+          <FormControl className="app_dropdown">
+            <Select
+              variant="outlined"
+              value={country}
+              onChange={(e) => setcountry(e.target.value)}
+            >
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+              {countries.map((country) => (
+                <MenuItem key={country.value} value={country.name}>
+                  {country.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+
+        <div className="app_stats">
+          <InfoBox title="Corona" cases="5000" total="1000"></InfoBox>
+          <InfoBox title="Recuperados" cases="15000" total="1000"></InfoBox>
+          <InfoBox title="Mortes" cases="100" total="1000"></InfoBox>
+        </div>
+      </div>
+      <div className="app_right">
+        {/* Table */}
+        {/* Graph */}
       </div>
 
-      {/* InfoBox */}
-      {/* InfoBox */}
-      {/* InfoBox */}
-
-      {/* Table */}
-      {/* Graph */}
-
-      {/* Map */}
+      <Map />
     </div>
   );
 }
