@@ -34,3 +34,24 @@ body {
     flex-direction: column;
   }
 }
+
+.table {
+  margin-top: 20px;
+  overflow: scroll;
+  height: 400px;
+  color: #6a5d5d;
+  background-color: white;
+}
+
+.table td {
+  padding: 0.5em;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table tr:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
