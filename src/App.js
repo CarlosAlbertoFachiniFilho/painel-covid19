@@ -12,13 +12,16 @@ import Map from "./Map";
 import Table from "./Table";
 import { sortData } from "./util";
 import LineGraph from "./LineGraph";
-// import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css";
 
 function App() {
   const [countries, setcountries] = useState([]);
   const [country, setcountry] = useState("worldwide");
   const [countryInfo, setcountryInfo] = useState({});
   const [tableData, settableData] = useState([]);
+  const [mapCenter, setmapCenter] = useState([-12.57321, -30.325]);
+  // const [mapCenter, setmapCenter] = useState([34.80746, -40.4796]);
+  const [zoomMap, setzoomMap] = useState(2);
 
   // fonte: https://disease.sh/
 
@@ -103,7 +106,7 @@ function App() {
           ></InfoBox>
         </div>
 
-        <Map />
+        <Map center={mapCenter} zoom={zoomMap} />
       </div>
       <Card className="app_right">
         <CardContent>
