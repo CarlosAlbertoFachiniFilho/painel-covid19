@@ -19,6 +19,12 @@ function App() {
   const [countryInfo, setcountryInfo] = useState({});
   const [tableData, settableData] = useState([]);
 
+  // fonte: https://disease.sh/
+
+  // dependências:
+  // https://github.com/reactchartjs/react-chartjs-2
+  // http://numeraljs.com/
+
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
       .then((respond) => respond.json())
@@ -103,7 +109,7 @@ function App() {
           <h3>Casos por países</h3>
           <Table countries={tableData} />
           <h3>Novos casos no mundo</h3>
-          <LineGraph />
+          <LineGraph casesType="cases" />
         </CardContent>
       </Card>
     </div>
